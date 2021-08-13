@@ -1,0 +1,71 @@
+@import 'variables';
+
+
+.navbar-toggler {
+  position: absolute;
+  right: var(--small);
+  top: .25rem;
+  width: 30px;
+  height: 50px;
+  border: none !important;
+  padding: 0 !important;
+  .line{
+    width: 100%;
+    float: left;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin-bottom: 8px;
+    &:nth-child(2) {
+      transform: translate(-200%);
+      transition: var(--transition-speed);
+      opacity: 0;
+    }
+    &:nth-child(1) {
+      transform: rotate(45deg) translate(9px, 6px);
+      transition: var(--transition-speed);
+    }
+    &:nth-child(3) {
+      transform: rotate(-45deg) translate(9px,-6px);
+      transition: var(--transition-speed);
+      background-color: var(--tertiary-color);
+    }
+  }
+  &.collapsed {
+    .line{
+      background-color: var(--primary-color);
+      &:nth-child(2) {
+        transform: translateX(0);
+        transition: var(--transition-speed);
+        opacity: 1;
+      }
+      &:nth-child(1) {
+        transform: rotate(0);
+        transition: var(--transition-speed);
+      }
+      &:nth-child(3) {
+        transform: rotate(0);
+        transition: var(--transition-speed);
+        background-color: var(--primary-color);
+      }
+    }
+  }
+}
+.nav-item {
+  margin: 0 calc(var(--medium) / 4);
+  a {
+    position: relative;
+    padding: calc(var(--medium) / 4);
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Zilla Slab', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: all var(--transition-speed) ease-in-out 0s;
+    &.active {
+      pointer-events: none;
+    }
+    &:hover {
+      //color: $tertiary-color;
+      transition: all var(--transition-speed) ease-in-out 0s;
+    }
+  }
+}

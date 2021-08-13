@@ -1,0 +1,29 @@
+@import "variables";
+@import "mixins";
+.footer {
+  background-color: var(--tertiary-color);
+  text-align: center;
+  .nav {
+    @include flexbox;
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+    @include justify-content(center);
+    @include align-items(center);
+    .nav-item {
+      a {
+        padding: 0.5rem;
+        font-family: 'Fjalla One', sans-serif;
+        font-family: 'Zilla Slab', serif;
+        font-size: 1.5rem;
+        font-weight: 300;
+
+      }
+    }
+  }
+}
+@media only screen and (max-width: 767px) {
+  .footer {
+    @include justify-content(flex-start);
+
+  }
+}

@@ -1,0 +1,35 @@
+.fade-enter {
+  transform: translateX(0);
+  transform-origin: center;
+  transition: all var(--transition-speed) ease-in-out;
+  opacity: 0;
+}
+
+.fade-appear {
+  @extend .fade-enter;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: scale(1) translateX(0);
+  transform-origin: center;
+  transition: all var(--transition-speed) ease-in-out var(--transition-speed);
+}
+
+.fade-enter-done,
+.fade-appear-done {
+  @extend .fade-enter-active;
+  transition: all var(--transition-speed) ease-in-out 0s;
+}
+
+.fade-appear-done {
+  transition: all var(--transition-speed) ease-in-out;
+}
+
+.fade-exit.fade-exit-active,
+.fade-exit.fade-leave-active {
+  opacity: 0;
+  transform: translateX(0);
+  transform-origin: center;
+  transition: all var(--transition-speed) ease-in-out;
+}

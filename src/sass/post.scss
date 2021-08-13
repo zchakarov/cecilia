@@ -1,0 +1,117 @@
+@import "variables";
+@import "mixins";
+.post, .article {
+  .modal-content-header {
+    @include flexbox;
+    @include flex-direction(row);
+    @include justify-content(space-between);
+    @include align-items(center);
+    height: 40vh;
+    padding: 0;
+    .modal-content-thumbnail {
+      img {
+        max-width: 100%;
+        z-index: -1;
+
+      }
+    }
+    .modal-content-text {
+      @include flexbox;
+      @include flex-direction(column);
+      @include justify-content(center);
+      @include align-items(flex-end);
+    }
+  }
+  .modal-content-body {
+    @include flexbox;
+    @include flex-direction(column);
+    @include align-items(center);
+    width: 100%;
+    padding-bottom: var(--big);
+    p {
+      @include push--auto;
+      padding: var(--medium) 0;
+      line-height: 2.25;
+    }
+    .wp-block-gallery {
+      .blocks-gallery-item {
+        z-index: 2;
+
+      }
+    }
+    .board {
+      .row {
+        @include flexbox;
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+        @include push--auto;
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+        --primary-color-space: nowrap;
+        .board-image {
+          padding: 0;
+          img {
+            width: 100%;
+
+          }
+        }
+      }
+
+
+    }
+  }
+
+}
+@media only screen and (max-width: 989px) {
+  .post, .article {
+    .modal-content-header {
+      height: auto;
+      min-height: 40vh;
+      @include align-items(center);
+    }
+  }
+}
+@media only screen and (max-width: 767px) {
+  .post, .article {
+    .modal-content-header {
+      @include justify-content(center);
+      @include align-items(flex-start);
+      height: auto;
+      min-height: 73vh;
+      position: relative;
+      margin-top: 15px;
+    }
+    .modal-content-body {
+      p {
+        padding: var(--medium) 0;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 445px) {
+  .post, .article {
+    .modal-content-header {
+
+      .modal-content-thumbnail {
+        @include flexbox;
+        @include flex-direction(column);
+        @include justify-content(center);
+      }
+      .modal-content-text {
+        @include align-items(flex-start);
+      }
+    }
+    .modal-content-body {
+      figure {
+        img {
+          width: auto;
+        }
+      }
+      p {
+        @include push--auto;
+        width: 100%;
+      }
+    }
+  }
+}
