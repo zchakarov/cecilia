@@ -7,11 +7,7 @@
   @include flex-wrap(wrap);
   position: relative;
   width: auto;
-  min-height: 50vh;
-  &.home_page {
-    min-height: 50vh;
-    @include align-items(center);
-  }
+
   .posts-grid-element {
     transition: var(--transition-speed);
     background-clip: padding-box;

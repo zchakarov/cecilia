@@ -21,8 +21,8 @@ export default function Home() {
     }, [setFetching]);
     return (
         <div>
-            <div>
-                    <Container fluid="xl" className={fetching?"body loading": "body loaded content-container"}>
+            <div className={fetching?"body loading": "body loaded"}>
+                    <Container fluid="xl" className="content-container">
                         {fetching
                             ? <Loading text='Laden'/>
                             :
