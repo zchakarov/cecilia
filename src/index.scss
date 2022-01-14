@@ -23,6 +23,10 @@
 
 }
 
+.welcome-message {
+  min-height: 40vh;
+  text-align: center;
+}
 
 .transition-elementabsolute {
   @include position(0,0,0,0);
@@ -190,4 +194,12 @@ ul.errors {
 }
 
 .content-container {
+}
+
+@media only screen and (max-width: 767px) {
+
+
+  .welcome-message {
+    min-height: 70vh;
+  }
 }

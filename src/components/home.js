@@ -22,39 +22,50 @@ export default function Home() {
     return (
         <div>
             <div>
-                <div className='content-container'>
                     <Container fluid="xl" className={fetching?"body loading": "body loaded content-container"}>
                         {fetching
                             ? <Loading text='Laden'/>
-                            : <Row className="home_page posts-grid">
-                                <FlipMove typeName={null}
-                                          staggerDurationBy={50}
-                                          duration={450}
-                                          enterAnimation='fade' leaveAnimation='fade'
-                                >
-                                    {posts.map((post, index) => {
-                                        if(post.sticky && post.status === 'publish') {
+                            :
+                            <>
+                                <Row className="justify-content-center align-items-center welcome-message">
+                                    <Col lg={8} md={8} sm={12}>
+                                        <h2>Testing something</h2>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    </Col>
+                                </Row>
+                                <Row className="home_page posts-grid">
+                                    <FlipMove typeName={null}
+                                              staggerDurationBy={50}
+                                              duration={450}
+                                              enterAnimation='fade' leaveAnimation='fade'
+                                    >
+                                        {posts.map((post, index) => {
+                                            if(post.sticky && post.status === 'publish') {
 
-                                            return (
-                                                <Col key={index} className="posts-grid-element" lg={4} md={4} sm={6} xs={12}>
-                                                    <Link to={{
-                                                        pathname: post.slug
-                                                    }} className="image-box">
-                                                        <img className="grayscale"
-                                                             src={post._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url}
-                                                             alt={post.title.rendered}/>
-                                                        <div className="headline">
-                                                            <h3>{post.title.rendered}</h3>
-                                                        </div>
-                                                    </Link>
-                                                </Col>)
-                                        }
-                                    })}
-                                </FlipMove>
-                            </Row>
+                                                return (
+                                                    <Col key={index} className="posts-grid-element" lg={3} md={4} sm={6} xs={12}>
+                                                        <Link to={{
+                                                            pathname: post.slug
+                                                        }} className="image-box">
+                                                            <img className="grayscale"
+                                                                 src={post._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url}
+                                                                 alt={post.title.rendered}/>
+                                                            <div className="headline">
+                                                                <h3>{post.title.rendered}</h3>
+                                                            </div>
+                                                        </Link>
+                                                    </Col>)
+                                            }
+                                        })}
+                                    </FlipMove>
+                                </Row>
+                            </>
+
                         }
                     </Container>
-                </div>
                 <Footer/>
 
             </div>

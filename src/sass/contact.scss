@@ -21,10 +21,12 @@ select:-webkit-autofill:focus {
   position: relative;
   height: 100%;
   transition: .6s ease-in-out;
+  .contact-input {
+    min-height: 40vh;
+
+  }
   .contact-message {
-    @include flexbox;
-    @include flex-direction(row);
-    @include flex-wrap(wrap);
+    display: inline-block;
     visibility: hidden;
     opacity: 0;
     transition: var(--transition-speed) ease-in-out;
@@ -67,7 +69,6 @@ select:-webkit-autofill:focus {
     opacity: 1;
     transition: var(--transition-speed) ease-in-out 0s;
     max-height: 1500px;
-    min-height: 30vh;
     &.hide-form {
       visibility: hidden;
       opacity: 0;
@@ -122,3 +123,11 @@ select:-webkit-autofill:focus {
 }
 
 
+@media only screen and (max-width: 767px) {
+  .contact-container {
+    .contact-input {
+      min-height: 70vh;
+
+    }
+  }
+}

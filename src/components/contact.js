@@ -62,17 +62,12 @@ export default class Contact extends React.Component {
             <div>
                 <div className='contact'>
                     <div className='content-container'>
-                        <Container fluid="xl">
-                            <Row className="justify-content-center modal-content-header">
-                                <Col lg={3} md={12} sm={12} xs={12} className="text-center modal-content-text">
-                                    <h1>Kontakt</h1>
-                                </Col>
-                            </Row>
-                        </Container>
+
                         <div className="contact-container">
-                            <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
                                 <Container fluid="xl">
-                                    <Row className='justify-content-center'>
+                                    <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
+
+                                    <Row className='justify-content-center align-items-center contact-input'>
                                         <Col className='contact-col' lg={4} xs={12}>
                                             <div className="form-group">
                                                 <label htmlFor="name">Name</label>
@@ -95,18 +90,20 @@ export default class Contact extends React.Component {
                                             </span>
                                             </div>
                                         </Col>
-                                        <Col lg={8} xs={12}>
+                                        <Col lg={8} xs={12} className="d-flex align-items-center">
                                             <button type="submit" className="btn">Submit</button>
+                                            <div className={this.state.issubmitted?'contact-message show-message':'contact-message'}>
+                                                <h3 className=" mx-5 ">{this.state.tempname}, danke für Ihre Nachricht</h3>
+                                            </div>
                                         </Col>
                                     </Row>
+                                    </form>
+
                                 </Container>
-                            </form>
                             <Container fluid="xl">
                                 <Row className='justify-content-center'>
                                     <Col lg={8} md={8} xs={12}>
-                                        <div className={this.state.issubmitted?'contact-message show-message':'contact-message'}>
-                                            <h1>{this.state.tempname}, danke für Ihre Nachricht</h1>
-                                        </div>
+
                                     </Col>
                                 </Row>
                             </Container>

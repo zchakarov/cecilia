@@ -3,11 +3,11 @@
 .posts-grid {
   @include flexbox;
   @include flex-direction(row);
-  @include justify-content(flex-start);
+  @include justify-content(center);
   @include flex-wrap(wrap);
   position: relative;
   width: auto;
-  min-height: 29vh;
+  min-height: 50vh;
   &.home_page {
     min-height: 50vh;
     @include align-items(center);

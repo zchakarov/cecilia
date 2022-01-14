@@ -50,27 +50,30 @@ export default function Portfolio() {
                 <div className='content-container'>
                     <Container fluid="xl">
                         <Row className="justify-content-center modal-content-header">
-                            <Col lg={3} md={12} sm={12} xs={12} className="text-center modal-content-text">
-                                <h1>Portfolio</h1>
+
+                            <Col lg={6} md={6} sm={12} xs={12} className="text-center modal-content-text">
+                                <div className='cat-container'>
+                                    {categories.map((i, index) => {
+                                            return (
+                                                <button
+                                                    className={activeId === i.id ? "active btn" : "inactive btn"}
+                                                    key={i.id}
+                                                    value={i.slug}
+                                                    onClick={() => handleClick(i.id)}
+                                                >
+                                                    {i.name}
+                                                </button>
+                                            )
+                                        }
+                                    )}
+                                </div>
+
                             </Col>
                         </Row>
                     </Container>
-                    <div className='cat-container'>
-                        {categories.map((i, index) => {
-                                return (
-                                    <button
-                                        className={activeId === i.id ? "active btn" : "inactive btn"}
-                                        key={i.id}
-                                        value={i.slug}
-                                        onClick={() => handleClick(i.id)}
-                                    >
-                                        {i.name}
-                                    </button>
-                                )
-                            }
-                        )}
-                    </div>
+
                     <Container fluid="xl" className={fetching?"body loading": "body loaded"}>
+
                         {fetching
                             ? <Loading text='Loading'/>
                             : <Row className="posts-grid">
@@ -84,7 +87,7 @@ export default function Portfolio() {
                                     {filter.map((i)=> {
                                         if(i.status === 'publish') {
                                             return (
-                                                <Col key={i.id} className="posts-grid-element" lg={4} md={4} sm={6} xs={12}>
+                                                <Col key={i.id} className="posts-grid-element" lg={3} md={4} sm={6} xs={12}>
                                                     <Link to={{
                                                         pathname: i.slug
                                                     }} className="image-box">
