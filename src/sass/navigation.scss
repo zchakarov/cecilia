@@ -62,7 +62,6 @@
     transition: all var(--transition-speed) ease-in-out 0s;
     &.active {
       pointer-events: none;
-      color: var(--primary-color);
     }
     &:hover {
       //color: $tertiary-color;
