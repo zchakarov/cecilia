@@ -27,7 +27,7 @@
     @include flex-direction(column);
     @include align-items(center);
     width: 100%;
-    padding-bottom: var(--big);
+    padding: var(--big) 0;
     p {
       @include push--auto;
       padding: var(--medium) 0;

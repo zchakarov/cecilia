@@ -70,10 +70,10 @@ export default function Post() {
             jQuery('.blocks-gallery-grid').remove();
         }
         jQuery(document).ready(function() {
-            jQuery("img").on("contextmenu", function () {
+            jQuery(".SRLContainer").on("contextmenu", function () {
                 return false;
             });
-            jQuery("#SRLLightbox").on("contextmenu", function () {
+            jQuery(".SRLContainer").on("contextmenu", function () {
                 return false;
             });
         });

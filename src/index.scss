@@ -70,14 +70,13 @@ a:not(.logo):not(.css-rdzgic){
   position: relative;
   display: inline-block;
   &:after {
-    @include position(unset, 0, 0.25rem, 0);
+    @include position(0.5rem, 0, 0.5rem, 0);
     content: '';
     position: absolute;
     transition: var(--transition-speed) ease-in-out;
     width: 100%;
     opacity: 0;
     background: var(--tertiary-color);
-    height: 35px;
     z-index: -1;
   }
   &:hover, &.active {
@@ -117,6 +116,11 @@ a:not(.logo):not(.css-rdzgic){
     }
   }
 }
+
+.content-container {
+  min-height: 50vh;
+}
+
 .cat-container {
   @include flexbox;
   @include flex-direction(row);
@@ -187,3 +191,5 @@ ul.errors {
   width: 100%;
 }
 
+.content-container {
+}

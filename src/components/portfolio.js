@@ -84,7 +84,7 @@ export default function Portfolio() {
                                     {filter.map((i)=> {
                                         if(i.status === 'publish') {
                                             return (
-                                                <Col key={i.id} className="posts-grid-element" lg={3} md={3} sm={6} xs={12}>
+                                                <Col key={i.id} className="posts-grid-element" lg={4} md={4} sm={6} xs={12}>
                                                     <Link to={{
                                                         pathname: i.slug
                                                     }} className="image-box">

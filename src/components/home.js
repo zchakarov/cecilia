@@ -36,7 +36,7 @@ export default function Home() {
                                         if(post.sticky && post.status === 'publish') {
 
                                             return (
-                                                <Col key={index} className="posts-grid-element" lg={3} md={3} sm={6} xs={12}>
+                                                <Col key={index} className="posts-grid-element" lg={4} md={4} sm={6} xs={12}>
                                                     <Link to={{
                                                         pathname: post.slug
                                                     }} className="image-box">
