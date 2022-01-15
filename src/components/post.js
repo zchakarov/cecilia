@@ -12,7 +12,7 @@ export default function Post() {
     const options = {
         buttons: {
             backgroundColor: 'rgba(30,30,36,0)',
-            iconColor: 'deeppink',
+            iconColor: '#bc405f',
             iconPadding: '10px',
             showAutoplayButton: false,
             showCloseButton: true,

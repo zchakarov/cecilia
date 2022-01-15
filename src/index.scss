@@ -9,9 +9,6 @@
 @import "sass/posts-grid";
 @import "sass/post";
 @import "sass/footer";
-* {
-  -webkit-backface-visibility: hidden;
-}
 
 
 #root {
@@ -26,6 +23,11 @@
 .welcome-message {
   min-height: 40vh;
   text-align: center;
+  h2 {
+    border-bottom: 1px solid var(--tertiary-color);
+    display: inline-block;
+    margin: 1.5rem 0px;
+  }
 }
 
 .transition-elementabsolute {
@@ -39,8 +41,7 @@ body {
   color: var(--secondary-color);
   font-family: 'Roboto Slab', serif;
   font-weight: 300;
-  overflow-x: hidden;
-  overflow-y: scroll;
+
   &.overflowhidden {
     overflow: hidden;
     @media only screen and (min-width: 768px) {
