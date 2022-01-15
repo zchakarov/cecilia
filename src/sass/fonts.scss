@@ -11,6 +11,11 @@ h1,h2,h3 {
   margin: 0;
 }
 
+h2 {
+  border-bottom: 1px solid var(--tertiary-color);
+  display: inline-block;
+  margin: 1.5rem 0px;
+}
 
 h3 {
   font-size: 1.5rem;

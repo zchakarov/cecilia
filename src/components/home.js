@@ -36,7 +36,12 @@ export default function Home() {
                                             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                     </Col>
                                 </Row>
+
                                 <Row className="home_page posts-grid mb-5 pb-5">
+                                    <div className="d-flex justify-content-center w-100">
+                                        <h2 className="text-center m-5 pb-2">die neuesten Beiträge</h2>
+                                    </div>
+
                                     <FlipMove typeName={null}
                                               staggerDurationBy={50}
                                               duration={450}
