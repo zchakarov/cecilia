@@ -87,27 +87,16 @@ select:-webkit-autofill:focus {
 
   .form-group-span {
     transition: var(--transition-speed) ease-in-out;
-    &:before {
-      content: '';
-      position: absolute;
-      background: var(--primary-color);
-      z-index: -1;
-      transition: var(--transition-speed) ease-in-out;
 
-      @include position(-.25rem)
-    }
 
   }
   &:focus-within {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     .form-group-span {
-      color: var(--secondary-color);
+      color: var(--tertiary-color);
       input, textarea {
-        border-color: var(--secondary-color);
-        color: var(--secondary-color);
-      }
-      &:before {
-        background: var(--tertiary-color);
+        color: var(--tertiary-color);
+        border-color: var(--tertiary-color);
       }
     }
   }

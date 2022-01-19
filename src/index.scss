@@ -35,7 +35,7 @@
 }
 body {
   color: var(--secondary-color);
-  font-family: 'Roboto Slab', serif;
+  font-family: var(--font-family);
   font-weight: 300;
 
   &.overflowhidden {
@@ -70,37 +70,15 @@ body {
 a:not(.logo):not(.css-rdzgic){
   position: relative;
   display: inline-block;
-  &:after {
-    @include position(0.5rem, 0, 0.5rem, 0);
-    content: '';
-    position: absolute;
-    transition: var(--transition-speed) ease-in-out;
-    width: 100%;
-    opacity: 0;
-    background: var(--tertiary-color);
-    z-index: -1;
-  }
   &:hover, &.active {
-    &:after {
-      opacity: 1;
-      transition: var(--transition-speed) ease-in-out var(--transition-speed);
-    }
+    color: var(--tertiary-color) !important;
   }
 }
 
 .btn{
+  font-family: var(--font-family);
   transition: var(--transition-speed) ease-in-out;
   position: relative;
-  &:before {
-    @include position(-.25rem);
-    content: '';
-    position: absolute;
-    background: var(--tertiary-color);
-    z-index: -1;
-    transition: var(--transition-speed) ease-in-out;
-
-    opacity: 0;
-  }
   &:focus {
     outline: none;
     box-shadow: none;
@@ -108,11 +86,8 @@ a:not(.logo):not(.css-rdzgic){
   &.active, &:focus, &:active {
     transition: var(--transition-speed) ease-in-out;
     background: transparent;
-    border-color: var(--secondary-color);
-    &:before {
-      transition: var(--transition-speed) ease-in-out;
-      opacity: 1;
-    }
+    color: var(--tertiary-color);
+    border-color: var(--tertiary-color);
   }
 }
 
@@ -152,21 +127,17 @@ ul {
 .body {
   opacity: 0;
   transition: var(--transition-speed) ease-in-out 0s;
-  .image-box, .cat-container {
+  .image-box, .cat-container, .content-container {
     opacity: 0;
     transition: var(--transition-speed) ease-in-out 0s;
   }
   &.loaded {
     opacity: 1;
     transition: var(--transition-speed) ease-in-out 0.3s;
-    .image-box, .cat-container {
+    .image-box, .cat-container, .content-container {
       opacity: 1;
       transition: var(--transition-speed) ease-in-out;
-      @for $i from 1 through 30 {
-        &:nth-child(#{$i}) {
-          transition-delay: ($i * 0.3) + s;
-        }
-      }
+
     }
   }
 }

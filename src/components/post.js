@@ -93,11 +93,11 @@ export default function Post() {
                         <div className='content-container' key={index}>
                             {i._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url?
                                 <Container fluid="xl">
-                                    <Row className="modal-content-header justify-content-center">
-                                        <Col lg={3} md={4} sm={8} xs={12} className="modal-content-thumbnail">
+                                    <Row className="modal-content-header justify-content-around">
+                                        <Col lg={3} md={3} sm={8} xs={12} className="modal-content-thumbnail">
                                             <Image src={i._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} fluid/>
                                         </Col>
-                                        <Col lg={8} md={6} sm={8} xs={12} className="modal-content-text">
+                                        <Col lg={4} md={5} sm={8} xs={12} className="modal-content-text">
                                             <h1>{i.title.rendered}</h1>
                                         </Col>
                                     </Row>

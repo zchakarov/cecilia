@@ -110,27 +110,27 @@ export default class Contact extends React.Component {
                             <Container fluid="xl">
                                 <Row sm className='mt-3 pt-3 pb-3 justify-content-center pink-background'>
                                     <Col lg={4} md={6} xs={12}>
-                                        <h2>
+                                        <h3>
                                             Cecilia Herg GmbH
-                                        </h2>
-                                        <h2>
+                                        </h3>
+                                        <h3>
                                             Muster Str. 60
-                                        </h2>
-                                        <h2>
+                                        </h3>
+                                        <h3>
                                             38116 Braunschweig
-                                        </h2>
+                                        </h3>
                                     </Col>
                                     <Col lg={4} md={6} xs={12}>
-                                        <h2>
+                                        <h3>
                                             T+49 xxx-xxx-xxx-x
 
-                                        </h2>
-                                        <h2>
+                                        </h3>
+                                        <h3>
                                             F+49 xxx-xxx-xxx-x
-                                        </h2>
-                                        <h2>
+                                        </h3>
+                                        <h3>
                                             Einfo@cecilia.de
-                                        </h2>
+                                        </h3>
                                     </Col>
                                 </Row>
                             </Container>

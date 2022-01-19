@@ -9,7 +9,7 @@ import Contact from './components/contact'
 import Article from "./components/article";
 import Post from "./components/post";
 import Portfolio from './components/portfolio'
-
+import Services from "./components/services";
 import './index.scss';
 
 
@@ -194,9 +194,9 @@ const App = withRouter(({ location }) => (
                 transitionEnter={true}
                 transitionLeave={true}
                 timeout={{
-                    appear: 300,
-                    enter: 300,
-                    exit: 300,
+                    appear: 600,
+                    enter: 600,
+                    exit: 600,
                 }}
                 unmountOnExit={true}
                 appear
@@ -208,7 +208,15 @@ const App = withRouter(({ location }) => (
                     <Route exact path='/ueber-mich' component={Article}/>
                     <Route exact path='/impressum' component={Article}/>
 
-                    <Route exact path='/portfolio' component={Portfolio}/>
+                    <Route exact path='/kindergarten/galerie' component={Portfolio}/>
+                    <Route exact path='/schule/galerie' component={Portfolio}/>
+                    <Route exact path='/familie/galerie' component={Portfolio}/>
+                    <Route exact path='/taufe/galerie' component={Portfolio}/>
+
+                    <Route exact path='/kindergarten/services' component={Services}/>
+                    <Route exact path='/schule/services' component={Services}/>
+                    <Route exact path='/familie/services' component={Services}/>
+                    <Route exact path='/taufe/services' component={Services}/>
 
                     <Route path='/send' component={() => window.location.href =
                         'https://chakito.com/send.php'}/>

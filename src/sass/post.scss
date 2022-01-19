@@ -6,7 +6,6 @@
     @include flex-direction(row);
     @include justify-content(space-between);
     @include align-items(center);
-    height: 40vh;
     padding: 0;
     .modal-content-thumbnail {
       img {
@@ -31,7 +30,6 @@
     p {
       @include push--auto;
       padding: var(--medium) 0;
-      line-height: 2.25;
     }
     .wp-block-gallery {
       .blocks-gallery-item {
@@ -53,18 +51,17 @@
           padding: 0;
           img {
             width: 100%;
-
           }
         }
       }
-
-
     }
   }
-
 }
+
+
+
 @media only screen and (max-width: 989px) {
-  .post, .article {
+  .post{
     .modal-content-header {
       height: auto;
       min-height: 40vh;
@@ -73,12 +70,12 @@
   }
 }
 @media only screen and (max-width: 767px) {
-  .post, .article {
+  .post {
     .modal-content-header {
       @include justify-content(center);
       @include align-items(flex-start);
       height: auto;
-      min-height: 73vh;
+      min-height: 60vh;
       position: relative;
       margin-top: 15px;
     }
@@ -89,8 +86,8 @@
     }
   }
 }
-@media only screen and (max-width: 445px) {
-  .post, .article {
+@media only screen and (max-width: 480px) {
+  .post {
     .modal-content-header {
 
       .modal-content-thumbnail {
@@ -99,7 +96,8 @@
         @include justify-content(center);
       }
       .modal-content-text {
-        @include align-items(flex-start);
+        @include align-items(center);
+        text-align: center;
       }
     }
     .modal-content-body {

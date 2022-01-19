@@ -28,8 +28,8 @@ export default function Home() {
                             :
                             <>
                                 <Row className="justify-content-center align-items-center welcome-message">
-                                    <Col lg={8} md={8} sm={12}>
-                                        <h2 className="pb-2">Testing something</h2>
+                                    <Col lg={10} md={8} sm={12}>
+                                        <h2 className="pb-2 mb-4">Testing something</h2>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                                             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -41,7 +41,6 @@ export default function Home() {
                                     <div className="d-flex justify-content-center w-100">
                                         <h2 className="text-center m-5 pb-2">die neuesten Beiträge</h2>
                                     </div>
-
                                     <FlipMove typeName={null}
                                               staggerDurationBy={50}
                                               duration={450}

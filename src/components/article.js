@@ -29,17 +29,14 @@ export default function Article() {
                         <div className='content-container' key={index}>
                             {i._embedded['wp:featuredmedia'] &&
                             <Container fluid="xl">
-                                <Row className="modal-content-header justify-content-center">
-                                    <Col lg={3} md={4} sm={8} xs={12} className="modal-content-thumbnail">
-                                        <Image src={i._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} fluid/>
-                                    </Col>
-                                    <Col lg={8} md={8} sm={8} xs={12} className="modal-content-text">
+                                <Row className="modal-content-header align-items-center justify-content-center pt-4">
+                                    <Col lg={8} md={8} sm={8} xs={12} className="modal-content-text align-items-center">
                                         <h1>{i.title.rendered}</h1>
                                     </Col>
                                 </Row>
                             </Container>
                             }
-                            {i.content.rendered?<div className="modal-content-body">
+                            {i.content.rendered?<div className="modal-content-body p-0">
                                 <Container fluid="xl">
                                     <Row className='justify-content-center'>
                                         <Col sm={8} xs={12} dangerouslySetInnerHTML={ {__html: i.content.rendered} } />

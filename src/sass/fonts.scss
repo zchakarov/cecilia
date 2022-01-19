@@ -1,24 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800&family=Roboto:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Meow+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 h1,h2,h3 {
-  font-family: 'Fjalla One', sans-serif;
-  font-family: 'Zilla Slab', serif;
-  font-weight: 400;
+  font-family: 'Work Sans', sans-serif;
   line-height: 1.5;
   margin: 0;
 }
 
-h2 {
-  border-bottom: 1px solid var(--tertiary-color);
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Meow Script', cursive;
+  font-family: 'Sacramento', cursive;
+  font-size: 3.5rem;
+  font-weight: 400;
   display: inline-block;
-  margin: 1.5rem 0px;
+
+}
+
+h2 {
+  font-family: 'Meow Script', cursive;
+  font-family: 'Sacramento', cursive;
+  color: var(--tertiary-color);
+  font-size: 2.75rem;
+  display: inline-block;
+  margin: .5rem 0px;
+  position: relative;
 }
 
 h3 {
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1.5rem;
+  font-weight: 300;
+}
+
+p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem;
+  line-height: 1.25;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -29,7 +56,7 @@ h3 {
     font-size: 2rem;
   }
   h3 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
 }
@@ -39,17 +66,18 @@ h3 {
     font-size: 2.5rem;
   }
   h2 {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  h1 {
+    font-size: 2.25rem;
+  }
+  h2 {
     font-size: 1.75rem;
   }
 }
 
 
 
-@media only screen and (max-width: 445px) {
-  h1 {
-    font-size: 2rem;
-  }
-  h2 {
-    font-size: 1.5rem;
-  }
-}

@@ -1,8 +1,12 @@
 .fade-enter {
   transform: translateX(0);
   transform-origin: center;
-  transition: all var(--transition-speed) ease-in-out;
+  transition: all var(--transition-speed) ease-in-out var(--transition-speed);
   opacity: 0;
+  .image-box, .cat-container, .content-container {
+    opacity: 0;
+    transition: var(--transition-speed) ease-in-out 0s;
+  }
 }
 
 .fade-appear {
@@ -10,20 +14,22 @@
 }
 
 .fade-enter-active {
-  opacity: 1;
+  opacity: 0;
   transform: scale(1) translateX(0);
   transform-origin: center;
-  transition: all var(--transition-speed) ease-in-out var(--transition-speed);
+  transition: all var(--transition-speed) ease-in-out ;
 }
 
 .fade-enter-done,
 .fade-appear-done {
   @extend .fade-enter-active;
-  transition: all var(--transition-speed) ease-in-out 0s;
-}
+  opacity: 1;
 
-.fade-appear-done {
   transition: all var(--transition-speed) ease-in-out;
+  .image-box, .cat-container, .content-container {
+    opacity: 1;
+    transition: var(--transition-speed) ease-in-out 0s;
+  }
 }
 
 .fade-exit.fade-exit-active,
@@ -32,4 +38,8 @@
   transform: translateX(0);
   transform-origin: center;
   transition: all var(--transition-speed) ease-in-out;
+  .image-box, .cat-container, .content-container {
+    opacity: 0;
+    transition: var(--transition-speed) ease-in-out 0s;
+  }
 }
