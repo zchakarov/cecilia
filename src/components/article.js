@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Col, Container, Image, Row} from "react-bootstrap";
-import {Footer} from "./footer";
+import Footer from "./footer";
 
 export default function Article() {
     const [post, setPost] = useState([]);
@@ -29,8 +29,8 @@ export default function Article() {
                         <div className='content-container' key={index}>
                             {i._embedded['wp:featuredmedia'] &&
                             <Container fluid="xl">
-                                <Row className="modal-content-header align-items-center justify-content-center pt-4">
-                                    <Col lg={8} md={8} sm={8} xs={12} className="modal-content-text align-items-center">
+                                <Row className="modal-content-header justify-content-center pt-4">
+                                    <Col lg={8} md={8} sm={8} xs={12} className="modal-content-text justify-content-center align-items-center">
                                         <h1>{i.title.rendered}</h1>
                                     </Col>
                                 </Row>

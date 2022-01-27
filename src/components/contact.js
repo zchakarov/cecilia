@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import jQuery from "jquery";
 import {Col, Container, Row} from "react-bootstrap";
-import { Footer } from './footer'
+import Footer from './footer'
 export default class Contact extends React.Component {
     constructor(props) {
         super(props);
@@ -10,6 +10,9 @@ export default class Contact extends React.Component {
             name: '',
             tempname: '',
             email: '',
+            phone: '',
+            termin: '',
+            thema: '',
             message: '',
             issubmitted: false
         }
@@ -33,7 +36,7 @@ export default class Contact extends React.Component {
             if (response.data.status === 'success') {
                 this.setState({issubmitted: true});
                 this.setState({tempname: this.state.name});
-                this.setState({name: "", email: "", message: ""})
+                this.setState({name: "", email: "", message: "", phone: "", termin: "", thema: ""})
                 jQuery('input, textarea').each(function (i) {
                     jQuery(this).removeClass('leer');
                     jQuery(this).parent().prev('label').find('.required-error').remove();
@@ -67,27 +70,54 @@ export default class Contact extends React.Component {
                                 <Container fluid="xl">
                                     <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
 
-                                    <Row className='justify-content-center align-items-center contact-input'>
-                                        <Col className='contact-col' lg={4} xs={12}>
+                                    <Row className='justify-content-center align-items-start contact-input'>
+                                        <Col className='contact-col' lg={4} md={6} xs={12}>
                                             <div className="form-group">
-                                                <label htmlFor="name">Name</label>
+                                                <label htmlFor="name">Name *</label>
                                                 <span className='form-group-span'>
                                                     <input type="text" className="form-control" id="name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
                                                 </span>
                                             </div>
                                             <div className="form-group">
-                                                <label htmlFor="exampleInputEmail1">Email address</label>
+                                                <label htmlFor="email">Email *</label>
                                                 <span className='form-group-span'>
-                                                <input type="email" className="form-control" id="email" aria-describedby="emailHelp" value={this.state.email} onChange={this.onEmailChange.bind(this)} />
-                                            </span>
+                                                    <input type="email" className="form-control" id="email" aria-describedby="emailHelp" value={this.state.email} onChange={this.onEmailChange.bind(this)} />
+                                                </span>
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="phone">Telefon *</label>
+                                                <span className='form-group-span'>
+                                                    <input type="number" className="form-control" id="phone" aria-describedby="phoneHelp" value={this.state.phone} onChange={this.onPhoneChange.bind(this)} />
+                                                </span>
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="termin">Wunschtermin *</label>
+                                                <span className='form-group-span'>
+                                                    <input type="date" className="form-control" id="termin" aria-describedby="terminHelp" value={this.state.termin} onChange={this.onTerminChange.bind(this)} />
+                                                </span>
                                             </div>
                                         </Col>
-                                        <Col className='contact-col' lg={4} xs={12}>
+                                        <Col className='contact-col' lg={4} md={6} xs={12}>
+
                                             <div className="form-group">
-                                                <label htmlFor="message">Message</label>
+                                                <label>Thema</label>
+                                                <div onChange={this.onThemaChange.bind(this)}>
+                                                    <div className="thema-option my-2">
+                                                        <input type="radio" value="Kita" id="kita" name="thema" /><label htmlFor="kita">Kita/Schule</label>
+                                                    </div>
+                                                    <div className="thema-option my-2">
+                                                        <input type="radio" value="Familie" id="familie" name="thema" /><label htmlFor="familie">Familie</label>
+                                                    </div>
+                                                    <div className="thema-option">
+                                                        <input type="radio" value="Taufe" id="taufe" name="thema" /><label htmlFor="taufe">Taufe</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="message">Nachricht</label>
                                                 <span className='form-group-span'>
-                                            <textarea className="form-control" rows="5" id="message" value={this.state.message} onChange={this.onMessageChange.bind(this)} />
-                                            </span>
+                                                    <textarea className="form-control" rows="5" id="message" value={this.state.message} onChange={this.onMessageChange.bind(this)} />
+                                                </span>
                                             </div>
                                         </Col>
                                         <Col lg={8} xs={12} className="d-flex align-items-center">
@@ -150,6 +180,15 @@ export default class Contact extends React.Component {
         this.setState({email: event.target.value})
     }
 
+    onPhoneChange(event) {
+        this.setState({phone: event.target.value})
+    }
+    onTerminChange(event) {
+        this.setState({termin: event.target.value})
+    }
+    onThemaChange(event) {
+        this.setState({thema: event.target.value})
+    }
     onMessageChange(event) {
         this.setState({message: event.target.value})
     }

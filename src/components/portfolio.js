@@ -3,16 +3,21 @@ import axios from "axios";
 import {Col, Container, Row} from "react-bootstrap";
 import FlipMove from "react-flip-move";
 import {Link} from "react-router-dom";
-import {Footer} from "./footer";
+import Footer from "./footer";
 import {Loading} from "./loading";
 
 export default function Portfolio() {
     const [portfolio, setPortfolio] = useState([]);
     const [fetching, setFetching] = useState(true);
-
+    const urlArray = window.location.pathname.split("/");
+    const urlCategory = urlArray[urlArray.length-2];
     const getResults = async () => {
         const portfolio = await axios('http://chakito.com/blog/index.php/wp-json/wp/v2/posts?_embed');
-        setPortfolio(portfolio.data);
+        setPortfolio(portfolio.data.filter(
+            function(element){
+                return element.post_terms[0].slug == urlCategory;
+            }
+        ));
         setFetching(false);
     }
 
@@ -40,8 +45,7 @@ export default function Portfolio() {
                                 >
 
                                     {portfolio.map((i)=> {
-                                        var url = window.location.pathname.split("/");
-                                        if(i.status === 'publish' && i.post_terms[0].slug === url[url.length-2]) {
+                                        if(i.status === 'publish') {
                                             return (
                                                 <Col key={i.id} className="posts-grid-element" lg={3} md={4} sm={6} xs={12}>
                                                     <Link to={{

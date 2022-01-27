@@ -1,11 +1,12 @@
 @import "variables";
 @import "mixins";
-.post, .article {
+.post{
   .modal-content-header {
     @include flexbox;
     @include flex-direction(row);
     @include justify-content(space-between);
     @include align-items(center);
+    height: 40vh;
     padding: 0;
     .modal-content-thumbnail {
       img {

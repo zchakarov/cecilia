@@ -4,15 +4,14 @@ import {Col, Container, Row} from "react-bootstrap";
 import {Loading} from "./loading";
 import FlipMove from "react-flip-move";
 import {Link} from "react-router-dom";
-import {Footer} from "./footer";
-
+import Footer from "./footer";
 export default function Home() {
     const [ posts, setPosts ] = useState([]);
     const [ fetching, setFetching ] = useState(true);
     const getResult = async () => {
         const page = await axios.get('http://chakito.com/blog/index.php/wp-json/wp/v2/posts?_embed');
         setPosts(page.data);
-        setFetching(false);
+            setFetching(false);
     };
     useEffect(  () => {
         document.title = 'Home';

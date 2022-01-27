@@ -91,27 +91,35 @@
   border-radius: 0;
   opacity: 0;
   transition: all var(--transition-speed);
-  transform: translateY(-1000%);
-
+  z-index: -1;
   .dropdown-item {
+    visibility: hidden;
 
-    z-index: 1;
     background: transparent;
     text-align: right;
     padding: 0;
     opacity: 0;
-    transition: all var(--transition-speed) var(--transition-speed);
-    transform: translateX(-1000%);
+    transition: all var(--transition-speed);
+    @for $l from 1 through 20 {
+      &:nth-of-type(#{$l}) {
+        transition-delay: .3s*$l;
+      }
+    }
   }
   &.show {
     opacity: 1;
-    transition: all var(--transition-speed);
+    transition: all var(--transition-speed) ease-in var(--transition-speed);
     transform: translateY(0);
     .dropdown-item {
-
       opacity: 1;
       transition: all var(--transition-speed) var(--transition-speed);
-      transform: translateX(0);
+      visibility: visible;
+
+      @for $l from 1 through 20 {
+        &:nth-of-type(#{$l}) {
+          transition-delay: .2s*$l;
+        }
+      }
     }
   }
 }

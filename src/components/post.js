@@ -4,7 +4,7 @@ import jQuery from "jquery";
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
 
 import {Col, Container, Image, Row} from "react-bootstrap";
-import { Footer } from './footer'
+import Footer  from './footer'
 export default function Post() {
     const [post, setPost] = useState([]);
     const [images, setImages] = useState([]);
@@ -60,6 +60,9 @@ export default function Post() {
         if(post.data[0]){
             document.title=post.data[0].title.rendered;
         }
+        /*document.addEventListener('contextmenu',
+                event => event.preventDefault());*/
+
     };
     useEffect(  () => {
         if(jQuery('.blocks-gallery-grid').length > 0) {

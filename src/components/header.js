@@ -56,7 +56,7 @@ export default function Header() {
                                 <Nav.Item key={i}>
 
                                     {item.child_items && item.child_items.length > 0 ?
-                                        <NavDropdown className='navigation-link' id="dropdown" title={item.title}>
+                                        <NavDropdown className='navigation-link' id="dropdown" title={item.title} renderMenuOnMount={true}>
                                             { item.child_items.map((child, ci) => (
                                                 <NavDropdown.Item key={ci}>
                                                     {   child.type_label !== "Individueller Link" ?

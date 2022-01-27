@@ -19,9 +19,24 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         }
     }
     if (empty($_POST['message'])) {
-        $errors[] = 'Message is empty';
+        $errors[] = 'Nachricht ist leer';
     } else {
         $message = $_POST['message'];
+    }
+    if (empty($_POST['thema'])) {
+        $errors[] = 'Thema nicht eingegeben';
+    } else {
+        $thema = $_POST['thema'];
+    }
+    if (empty($_POST['termin'])) {
+        $errors[] = 'Wünschtermin nicht eingegeben';
+    } else {
+        $termin = $_POST['termin'];
+    }
+    if (empty($_POST['name'])) {
+        $errors[] = 'Name nicht eingegeben';
+    } else {
+        $name = $_POST['name'];
     }
     if (empty($errors)) {
         $date = date('j, F Y h:i A');
@@ -29,15 +44,19 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $emailBody = "
     <html>
     <head>
-    <title>$email is contacting you</title>
+    <title>Neue Nachricht von $name</title>
     </head>
     <body style=\"background-color:#fafafa;\">
     <div style=\"padding:20px;\">
-    Date: <span style=\"color:#888; border-bottom: deeppink dashed 1px;\">$date</span>
+    Datum: <div style=\"color:#888; border-bottom: deeppink dashed 1px;\">$date</div>
     <br>
-    Email: <span style=\"color:#888\">$email</span>
+    Email: <div style=\"color:#888\">$email</div>
     <br>
-    Message: <div style=\"color:#888\">$message</div>
+    Nachricht: <div style=\"color:#888\">$message</div>
+    <br>
+    Wünschtermin: <div style=\"color:#888\">$termin</div>    
+    <br>
+    Thema: <div style=\"color:#888\">$thema</div>
     </div>
     </body>
     </html>
@@ -49,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             "Content-Type: text/html; charset=iso-8859-1\r\n";
 
         $to = 'zlatin.chakarov@gmail.com';
-        $subject = 'Contacting you';
+        $subject = "Neue Nachricht von $name";
 
         if (mail($to, $subject, $emailBody, $headers)) {
             $sent = true;

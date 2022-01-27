@@ -4,7 +4,7 @@ import {Col, Container, Nav, Row} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
 import {scrolltop} from "./scrollTop";
 
-export const Footer = () => {
+export default function Footer() {
     const [ data , setData ] = useState([ ]);
 
     useEffect( () => {
