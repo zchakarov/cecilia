@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'The Star in the Midnight';
+    src: url('TheStarintheMidnight.woff2') format('woff2'),
+        url('TheStarintheMidnight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

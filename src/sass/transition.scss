@@ -1,11 +1,30 @@
+.content-container {
+  position: relative;
+  p, h1, h2, h3, .modal-content-thumbnail img{
+    position: relative;
+  }
+}
+
 .fade-enter {
   transform: translateX(0);
   transform-origin: center;
   transition: all var(--transition-speed) ease-in-out var(--transition-speed);
   opacity: 0;
-  .image-box, .cat-container, .content-container {
+  .cat-container, .content-container {
     opacity: 0;
     transition: var(--transition-speed) ease-in-out 0s;
+  }
+  .content-container {
+    top:25px;
+    h1, h2, h3 {
+      top: 50px
+    }
+    p {
+      top: 75px;
+    }
+    .modal-content-thumbnail img{
+      left: -100px;
+    }
   }
 }
 
@@ -26,9 +45,23 @@
   opacity: 1;
 
   transition: all var(--transition-speed) ease-in-out;
-  .image-box, .cat-container, .content-container {
+  .cat-container, .content-container {
     opacity: 1;
     transition: var(--transition-speed) ease-in-out 0s;
+  }
+  .content-container {
+    top:0;
+    transition: var(--slow-transition-speed) ease-in-out var(--slow-transition-speed);
+    h1, h2, h3, p {
+      top:0;
+      transition: var(--slow-transition-speed) ease-in-out var(--transition-speed);
+    }
+    p {
+      transition-delay: var(--slow-transition-speed);
+    }
+    .modal-content-thumbnail img{
+      left: 0;
+    }
   }
 }
 
@@ -38,8 +71,5 @@
   transform: translateX(0);
   transform-origin: center;
   transition: all var(--transition-speed) ease-in-out;
-  .image-box, .cat-container, .content-container {
-    opacity: 0;
-    transition: var(--transition-speed) ease-in-out 0s;
-  }
+
 }

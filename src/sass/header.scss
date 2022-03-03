@@ -9,14 +9,21 @@
   position: relative;
   z-index: 1;
   padding: 0;
-  height: 60vh;
+  height: var(--header-height);
 
   .logo {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    opacity: 0;
+    transform: translate(-150%, -50%);
     z-index: 1;
+    animation-name: logo;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    animation-delay: .6s;
   }
   .navbar {
     @include flex-direction(column);
@@ -24,44 +31,37 @@
     @include justify-content(space-between);
     width: 100%;
     padding: 0;
+    position: relative;
+
     .slider {
       width: 100%;
       height: 100%;
+      top: 0px;
+      left: 0px;
       position: relative;
-      &:after {
-        content: '';
-        @include position(0,0,0,0);
-        background: rgba(0,0,0,.5);
-      }
+      opacity: 0;
+      animation-name: appearance;
+      animation-duration: .3s;
+      animation-fill-mode: forwards;
       .slide {
-        @include position(0);
-        @include cover;
-        &:before {
-          content: '';
+        span {
+          width: 100%;
+          height: 100%;
           position: absolute;
-          left: 0;right: 0;top: 0;bottom: 0;
-          background-color: rgba(50,50,50,.25);
-        }
-        background-repeat: no-repeat;
-        background-position: center;
-        position: absolute;
-        opacity: 0;
-        animation: slider-animation;
-        animation-fill-mode: forwards;
-        animation-duration: 60s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease;
-        &.slide1 {
-          background-image: url(http://chakito.com/blog/wp-content/uploads/2020/07/IMG_20170411_195928-1-scaled.jpg);
+          top: 0px;
+          left: 0px;
+          color: transparent;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+
+          opacity: 0;
+          z-index: 0;
+          animation: appearance .6s linear forwards 0s;
 
         }
-        &.slide2 {
-          animation-delay: 20s;
-          background-image: url(http://510434238.swh.strato-hosting.eu/projekt/blog/wp-content/uploads/2020/08/image-1-1024x575.jpg);
-        }
-        &.slide3 {
-          animation-delay: 40s;
-          background-image: url(http://510434238.swh.strato-hosting.eu/projekt/blog/wp-content/uploads/2020/08/image2-1024x575.jpg);
+        &.slide1 span {
+          background-image: url("http://510434238.swh.strato-hosting.eu/projekt/hero.JPG");
         }
       }
     }
@@ -79,9 +79,17 @@
     }
   }
 }
+
+
+@media only screen and (max-height: 640px) {
+  .header {
+    max-height: var(--header-height-small-height-devices);
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .header {
-    height: 30vh;
+    height: var(--header-height-small-devices);
 
     .navbar {
       padding: 0;
@@ -98,7 +106,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        right: 0;
+        width: 100% ;
         height: 100%;
         padding: var(--medium);
         opacity: 0;
@@ -107,10 +115,9 @@
 
         .navbar-nav {
           @include align-items(flex-end);
-          .nav-item {
+          .nav-item > .navigation-link{
             opacity: 0;
             transition: all var(--transition-speed) ease-in-out, transform var(--transition-speed) ease-in-out var(--transition-speed);
-            transform: translateX(-1000%);
             z-index: 1;
           }
         }
@@ -124,13 +131,11 @@
               transition: all var(--transition-speed) ease-in-out;
             }
             .nav-item {
-              opacity: 1;
-              transition: all var(--transition-speed) ease-in-out var(--transition-speed);
-              transform: translateX(0);
-              @for $i from 1 through 7 {
-                &:nth-child(#{$i}) {
-                  transition-property: opacity;
-                  transition-delay: ($i / 5) + s;
+
+              @for $i from 1 through 20 {
+                &:nth-child(#{$i}) > .navigation-link{
+                  opacity: 1;
+                  transition: opacity var(--transition-speed) ($i / 5) + .1s !important;
                 }
               }
             }
@@ -149,7 +154,21 @@
     }
   }
 }
-@media only screen and (max-width: 540px) {
+
+@media only screen and (max-width: 567px) {
+  .header {
+    .logo {
+      img {
+        width: 100px;
+        height: auto;
+      }
+    }
+  }
+}
+
+
+
+@media only screen and (max-height: 540px) {
   .header {
     .logo {
       img {

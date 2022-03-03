@@ -3,8 +3,9 @@ import axios from "axios";
 import jQuery from "jquery";
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
 
-import {Col, Container, Image, Row} from "react-bootstrap";
+import {Col, Container, Image, Row, Breadcrumb} from "react-bootstrap";
 import Footer  from './footer'
+import {Link} from "react-router-dom";
 export default function Post() {
     const [post, setPost] = useState([]);
     const [images, setImages] = useState([]);
@@ -57,9 +58,7 @@ export default function Post() {
         const post = await axios.get('http://chakito.com/blog/index.php/wp-json/wp/v2/posts?_embed&slug='+ window.location.pathname.split("/").pop());
         setPost(post.data);
         console.log(post);
-        if(post.data[0]){
-            document.title=post.data[0].title.rendered;
-        }
+
         /*document.addEventListener('contextmenu',
                 event => event.preventDefault());*/
 
@@ -90,18 +89,26 @@ export default function Post() {
     return (
         <div>
             {post.map((i, index) => {
+                if(i){
+                    document.title=i.title.rendered;
+                }
                 const date = new Date(i.date_gmt);
                 return (
                     <div key={index} className='post'>
                         <div className='content-container' key={index}>
                             {i._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url?
                                 <Container fluid="xl">
-                                    <Row className="modal-content-header justify-content-around">
-                                        <Col lg={3} md={3} sm={8} xs={12} className="modal-content-thumbnail">
-                                            <Image src={i._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} fluid/>
+                                    <Row>
+                                        <Col lg={12}>
+
                                         </Col>
-                                        <Col lg={4} md={5} sm={8} xs={12} className="modal-content-text">
-                                            <h1>{i.title.rendered}</h1>
+                                    </Row>
+                                    <Row className="modal-content-header justify-content-around">
+                                        <Col lg={3} md={3} sm={4} xs={12} className="modal-content-thumbnail">
+                                            <Image src={i._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} className="p-md-4" fluid/>
+                                        </Col>
+                                        <Col lg={4} md={5} sm="auto" xs={12} className="modal-content-text">
+                                            <h2 className="post--title">{i.title.rendered}</h2>
                                         </Col>
                                     </Row>
                                 </Container>

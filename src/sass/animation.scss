@@ -16,21 +16,11 @@
 }
 
 @keyframes slider-animation {
-  0% {
-    opacity: 0;
-  }
-  6% {
-    opacity: 1;
-  }
-  24% {
-    opacity: 1;
-  }
-  60% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
+  0% { opacity: 0; animation-timing-function: ease-in; }
+  5% { opacity: 1; animation-timing-function: ease-out; }
+  40% { opacity: 1 }
+  45% { opacity: 0 }
+  100% { opacity: 0 }
 }
 
 @keyframes blink {
@@ -42,5 +32,46 @@
   }
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes appearance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes menu-appearance {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+
+  }
+}
+
+@keyframes shadow {
+  from {
+    background-color: rgba(0,0,0,0);
+  }
+  to {
+    background-color: rgba(0,0,0,.66);
+  }
+}
+
+@keyframes logo {
+  0% {
+    transform: translate(-150%, -50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
   }
 }

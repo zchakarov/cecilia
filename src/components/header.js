@@ -22,7 +22,7 @@ export default function Header() {
 
         jQuery('.navbar-toggler').on('click', function () {
             jQuery('body').toggleClass('overflowhidden');
-            jQuery('.navigation-link').on('click', function () {
+            jQuery('.navigation-link:not(.dropdown)').on('click', function () {
                 jQuery('body').removeClass('overflowhidden');
             });
         });
@@ -36,11 +36,11 @@ export default function Header() {
         <div className="header">
             <Navbar expanded={expanded} expand="md" sticky="bottom">
                 <div className="slider">
-                    <div className='slide slide1'/>
-                    <div className='slide slide2'/>
-                    <div className='slide slide3'/>
+                    <div className='slide slide1'>
+                        <span>Slide 1</span>
+                    </div>
                     <div >
-                        <Link className='logo' to='/'><Image src="http://www.chakito.com/logo.svg" width="143" height="130"/></Link>
+                        <Link className='logo' to='/'><Image src="http://www.chakito.com/logo.png" width="160" height="160"/></Link>
 
                     </div>
                 </div>
@@ -69,7 +69,7 @@ export default function Header() {
                                                         >{child.title}
                                                         </NavLink>:
 
-                                                        <Nav.Link active={false} class="navigation-link sub-navigation-link" href={child.url} target="_blank" onClick = {()=>{openInNewTab(child.url); setExpanded(false)}}>{child.title}</Nav.Link>
+                                                        <Nav.Link active={false} className="navigation-link sub-navigation-link" href={child.url} target="_blank" onClick = {()=>{openInNewTab(child.url); setExpanded(false)}}>{child.title}</Nav.Link>
 
                                                     }
 

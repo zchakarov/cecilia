@@ -8,9 +8,7 @@ export default function Article() {
     const getResult = async () => {
         const page = await axios.get('http://chakito.com/blog/index.php/wp-json/wp/v2/pages?_embed&slug='+ window.location.pathname.split("/").pop());
         setPost(page.data);
-        if(page) {
-            document.title = page.data[0].title.rendered;
-        }
+
 
     };
     useEffect(  () => {
@@ -22,7 +20,9 @@ export default function Article() {
     return (
         <div>
             {post.map((i, index) => {
-
+                if(i) {
+                    document.title = i.title.rendered;
+                }
                 //const date = new Date(i.date_gmt);
                 return (
                     <div key={index} className='article'>
@@ -31,7 +31,7 @@ export default function Article() {
                             <Container fluid="xl">
                                 <Row className="modal-content-header justify-content-center pt-4">
                                     <Col lg={8} md={8} sm={8} xs={12} className="modal-content-text justify-content-center align-items-center">
-                                        <h1>{i.title.rendered}</h1>
+                                        <h2 className="article--title">{i.title.rendered}</h2>
                                     </Col>
                                 </Row>
                             </Container>

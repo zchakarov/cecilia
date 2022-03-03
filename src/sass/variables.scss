@@ -1,3 +1,5 @@
+
+
 :root {
   --primary-color: #fff;
   --secondary-color: #666;
@@ -7,7 +9,12 @@
   --medium: 2rem;
   --big: 3rem;
 
+  --header-height: 62.5vh;
+  --header-height-small-height-devices: 60vh;
+  --header-height-small-devices: 35vh;
+
   --transition-speed: .3s;
+  --slow-transition-speed: .6s;
 
   --border-width: 1px;
 

@@ -15,7 +15,7 @@ export default function Portfolio() {
         const portfolio = await axios('http://chakito.com/blog/index.php/wp-json/wp/v2/posts?_embed');
         setPortfolio(portfolio.data.filter(
             function(element){
-                return element.post_terms[0].slug == urlCategory;
+                return element.post_terms[0].slug === urlCategory;
             }
         ));
         setFetching(false);
@@ -24,11 +24,11 @@ export default function Portfolio() {
     useEffect(  () => {
         getResults();
 
-        document.title = 'Portfolio';
 
     }, []);
 
     return (
+
         <div>
             <div>
                 <div className='content-container'>
@@ -45,17 +45,19 @@ export default function Portfolio() {
                                 >
 
                                     {portfolio.map((i)=> {
+                                        document.title = i.post_terms[0].name + " - Galerie" ;
+
                                         if(i.status === 'publish') {
                                             return (
-                                                <Col key={i.id} className="posts-grid-element" lg={3} md={4} sm={6} xs={12}>
+                                                <Col key={i.id} className="posts-grid-element p-2 p-md-0 mx-md-4" lg={2} md={3} sm={6} xs={12}>
                                                     <Link to={{
-                                                        pathname: i.slug
+                                                        pathname: `/${i.post_terms[0].slug}/galerie/${i.slug}`
                                                     }} className="image-box">
                                                         <img className="grayscale"
                                                              src={i._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url}
                                                              alt={i.title.rendered}/>
                                                         <div className="headline">
-                                                            <h3>{i.title.rendered}</h3>
+                                                            <h4>{i.title.rendered}</h4>
                                                          </div>
                                                     </Link>
                                                 </Col>

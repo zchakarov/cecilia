@@ -6,7 +6,7 @@
     @include flex-direction(row);
     @include justify-content(space-between);
     @include align-items(center);
-    height: 40vh;
+    height: calc(100vh - var(--header-height));
     padding: 0;
     .modal-content-thumbnail {
       img {
@@ -70,13 +70,20 @@
     }
   }
 }
-@media only screen and (max-width: 767px) {
+
+@media only screen and (max-height: 640px) {
+  .post .modal-content-header {
+    min-height: calc(100vh - var(--header-height-small-height-devices));
+  }
+}
+
+@media only screen and (max-width: 576px) {
   .post {
     .modal-content-header {
       @include justify-content(center);
       @include align-items(flex-start);
       height: auto;
-      min-height: 60vh;
+      min-height: calc( 100vh - var(--header-height-small-devices));
       position: relative;
       margin-top: 15px;
     }
@@ -87,6 +94,9 @@
     }
   }
 }
+
+
+
 @media only screen and (max-width: 480px) {
   .post {
     .modal-content-header {
@@ -114,3 +124,5 @@
     }
   }
 }
+
+

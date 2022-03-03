@@ -16,6 +16,7 @@
     "react-bootstrap": "^1.6.4",
     "react-dom": "^16.14.0",
     "react-flip-move": "^3.0.4",
+    "react-google-maps": "^9.4.5",
     "react-image": "^4.0.3",
     "react-lightbox-component": "^1.2.1",
     "react-masonry-css": "^1.0.16",

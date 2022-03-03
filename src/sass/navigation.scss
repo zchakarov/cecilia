@@ -51,9 +51,16 @@
   }
 }
 .nav-item {
+
   &:not(.navigation-link) {
     margin: 0 calc(var(--small) / 2);
-
+    opacity: 0;
+    animation-name: menu-appearance;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-duration: var(--transition-speed);
+    animation-delay: var(--transition-speed);
+    animation-timing-function: ease-in-out;
   }
   .nav-link, .navigation-link  {
     position: relative;

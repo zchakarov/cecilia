@@ -39,7 +39,7 @@ const App = withRouter(({ location }) => (
                 transitionEnter={true}
                 transitionLeave={true}
                 timeout={{
-                    appear: 600,
+                    appear: 900,
                     enter: 600,
                     exit: 600,
                 }}

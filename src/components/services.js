@@ -32,10 +32,12 @@ export default function Services() {
 
     }, [fetching]);
 
+
     return (
         <div>
             {data.map((i, index) => {
 
+                document.title = i._embedded.up[0].title.rendered + " - " + i.title.rendered
 
                 return (
                     <div key={index} className='article'>
