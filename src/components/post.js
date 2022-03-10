@@ -64,12 +64,12 @@ export default function Post() {
 
     };
     useEffect(  () => {
-        if(jQuery('.blocks-gallery-grid').length > 0) {
-            jQuery('.blocks-gallery-grid li img').each(function () {
-                setImages(images => [...images, {'src' : jQuery(this).attr('data-full-url'), 'thumbnail' : jQuery(this).attr('src'), 'title': jQuery(this).attr('alt'), 'description':jQuery(this).next('figcaption').text()?jQuery(this).next('figcaption').text():''}]);
+        if(jQuery('.ngg-gallery-thumbnail-box').length > 0) {
+            jQuery('.ngg-simplelightbox').each(function () {
+                setImages(images => [...images, {'src' : jQuery(this).attr('data-src'), 'thumbnail' : jQuery(this).attr('data-thumbnail'), 'title': jQuery(this).attr('alt'), 'description':jQuery(this).next('figcaption').text()?jQuery(this).next('figcaption').text():''}]);
             });
 
-            jQuery('.blocks-gallery-grid').remove();
+            jQuery('.ngg-gallery-thumbnail-box').remove();
         }
         jQuery(document).ready(function() {
             jQuery(".SRLContainer").on("contextmenu", function () {

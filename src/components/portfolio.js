@@ -32,7 +32,7 @@ export default function Portfolio() {
         <div>
             <div>
                 <div className='content-container'>
-                    <Container fluid="xl" className={fetching?"body loading": "body loaded"}>
+                    <Container fluid className={fetching?"body loading": "body loaded"}>
 
                         {fetching
                             ? <Loading text='Loading'/>
